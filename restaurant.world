@@ -1,0 +1,120 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="restaurant_world">
+
+    <!-- Light -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Four walls -->
+    <model name="wall_front">
+      <pose>0 5 1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>10 0.1 2</size></box></geometry>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>10 0.1 2</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="wall_back">
+      <pose>0 -5 1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>10 0.1 2</size></box></geometry>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>10 0.1 2</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="wall_left">
+      <pose>-5 0 1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.1 10 2</size></box></geometry>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>0.1 10 2</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="wall_right">
+      <pose>5 0 1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.1 10 2</size></box></geometry>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>0.1 10 2</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Original Table -->
+    <model name="table1">
+      <pose>2 2 0 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder><radius>0.5</radius><length>0.75</length></cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder><radius>0.5</radius><length>0.75</length></cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- New Table -->
+    <model name="table2">
+      <pose>-2 -2 0 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder><radius>0.5</radius><length>0.75</length></cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder><radius>0.5</radius><length>0.75</length></cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Kitchen area -->
+    <model name="kitchen_counter">
+      <pose>-3 3 0.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1.5 0.5 1</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Gray</name></script></material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>1.5 0.5 1</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Spawn TurtleBot3 -->
+    <include>
+      <uri>model://turtlebot3_burger</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+  </world>
+</sdf>
+
