@@ -94,6 +94,23 @@
         </collision>
       </link>
     </model>
+    
+        <!-- Third Table -->
+    <model name="table3">
+      <pose>2 -2 0 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder><radius>0.5</radius><length>0.75</length></cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder><radius>0.5</radius><length>0.75</length></cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
 
     <!-- Kitchen area -->
     <model name="kitchen_counter">
@@ -117,4 +134,3 @@
 
   </world>
 </sdf>
-
