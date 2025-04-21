@@ -17,8 +17,9 @@ class MultiPointNavigator(Node):
             'Home': (0.0, 0.0, 0.0),
             'Kitchen': (-2.5, 2.5, 1.57),
             'Buffer Zone': (-1.0, 1.5, 0.0),
-            'Table 1': (2.0, 2.5, 0.0),
-            'Table 2': (-2.0, -2.5, 0.0)
+            'Table 1': (2.0, 3.0, 0.0),
+            'Table 2': (-2.0, -3.0, 0.0),
+            'Table 3': (2.0, -3.0, 0.0)  # ← Added Table 3 here
         }
 
     def create_pose(self, x, y, yaw):
@@ -70,6 +71,7 @@ class MultiPointNavigator(Node):
                 print("\n=== Delivery Menu ===")
                 print("1 - Deliver to Table 1")
                 print("2 - Deliver to Table 2")
+                print("3 - Deliver to Table 3")  # ← Added this
                 print("q - Return to Home and Quit")
                 choice = input("Enter your choice: ").strip()
 
@@ -77,6 +79,8 @@ class MultiPointNavigator(Node):
                     self.deliver("Table 1")
                 elif choice == '2':
                     self.deliver("Table 2")
+                elif choice == '3':
+                    self.deliver("Table 3")  # ← And this
                 elif choice.lower() == 'q':
                     self.get_logger().info("Returning to Home before exit...")
                     self.navigate_to("Home")
@@ -97,4 +101,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
